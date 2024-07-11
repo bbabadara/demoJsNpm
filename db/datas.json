@@ -1,0 +1,160 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "nom": "Ba",
+      "prenom": "Badara",
+      "telephone": "772641040",
+      "adresse": "Ouakam",
+      "sexe": "M",
+      "fonction": "client",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzDR9UU9sQWlWTDm1JbBvjy2lCQbNM9z29Dw&usqp=CAU",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 10000,
+          "date": "2022-01-01",
+          "verse": 10000
+        },
+        {
+          "id": 2,
+          "montant": 15000,
+          "date": "2023-01-01",
+          "verse": 7000
+        },
+        {
+          "id": 3,
+          "montant": 50000,
+          "date": "2024-01-01",
+          "verse": 45000
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nom": "Sene",
+      "prenom": "Awa Moussa",
+      "telephone": "770123456",
+      "adresse": "Dakar",
+      "sexe": "F",
+      "fonction": "client",
+      "photo": "https://example.com/photo.jpg",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 20000,
+          "date": "2022-05-01",
+          "verse": 10000
+        },
+        {
+          "id": 2,
+          "montant": 30000,
+          "date": "2023-03-15",
+          "verse": 15000
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nom": "Diatta",
+      "prenom": "Issa",
+      "telephone": "771234567",
+      "adresse": "Thiès",
+      "sexe": "M",
+      "fonction": "client",
+      "photo": "https://example.com/photo.jpg",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 10000,
+          "date": "2022-01-01",
+          "verse": 5000
+        },
+        {
+          "id": 2,
+          "montant": 5000,
+          "date": "2023-07-21",
+          "verse": 3000
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nom": "Ba",
+      "prenom": "Amadou",
+      "telephone": "772345678",
+      "adresse": "Saint-Louis",
+      "sexe": "M",
+      "fonction": "client",
+      "photo": "https://example.com/photo.jpg",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 15000,
+          "date": "2022-10-10",
+          "verse": 10000
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nom": "Diop",
+      "prenom": "Madieume",
+      "telephone": "773456789",
+      "adresse": "Kaolack",
+      "sexe": "M",
+      "fonction": "client",
+      "photo": "https://example.com/photo.jpg",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 25000,
+          "date": "2023-01-01",
+          "verse": 20000
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nom": "Diallo",
+      "prenom": "Djamilatou",
+      "telephone": "774567890",
+      "adresse": "Ziguinchor",
+      "sexe": "F",
+      "fonction": "client",
+      "photo": "https://example.com/photo.jpg",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 30000,
+          "date": "2023-04-04",
+          "verse": 15000
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nom": "Diallo",
+      "prenom": "Mamadou Diang",
+      "telephone": "774530940",
+      "adresse": "Thiaroye",
+      "sexe": "M",
+      "fonction": "client",
+      "photo": "https://example.com/photo.jpg",
+      "dette": [
+        {
+          "id": 1,
+          "montant": 12000,
+          "date": "2022-08-08",
+          "verse": 6000
+        },
+        {
+          "id": 2,
+          "montant": 8000,
+          "date": "2023-09-09",
+          "verse": 4000
+        }
+      ]
+    }
+  ]
+}
