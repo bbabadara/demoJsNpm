@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suivie Dette</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 
 <body>
-    <h1 class="text-center mt-4">Suivie De Dettes</h1>
+    <h1 class="text-center mt-2">Suivie De Dettes</h1>
     <div class="container">
         <!-- Parti input telephone et boutton ok -->
-        <div class="container col-12 shadow p-3 mt-3  rounded">
+        <div class="container col-12 shadow p-3 mt-2  rounded">
             <div class="d-flex align-items-center col-md-5">
                 <label for="inputTel" class="form-label p-2 ">Telephone</label>
                 <div>
@@ -25,7 +27,7 @@
         </div>
 
         <!-- Partie tabs-menu -->
-        <nav aria-label="tabnav" class="mt-3">
+        <nav aria-label="tabnav" class="mt-2">
 
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-info-tab" data-bs-toggle="tab" data-bs-target="#nav-info"
@@ -39,7 +41,7 @@
         <div class="tab-content" id="nav-tabContent">
             <!-- Partie info client -->
             <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
-                <div class="container d-flex align-items-center justify-content-around mt-3">
+                <div class="container d-flex align-items-center justify-content-around mt-2">
                   <div class="col-5">
                     <img src="./avatar.jpeg" class=" rounded-circle" alt alt="">
                   </div>
@@ -69,13 +71,17 @@
                     <div class="d-flex align-items-center p-2">
                         <label for="inputDateFilter" class="form-label  mx-3">Date</label>
                         <input type="date" class="form-control" name="date" id="inputDateFilter" />
-                        <button type="button" class="btn btn bg-primary mx-3  ">Ok</button>
+                        <button type="button" class="btn btn bg-primary mx-3" id="btnDateFilter">Ok</button>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover border-primary">
                     <thead>
                         <tr>
-                            <th scope="col">Date</th>
+                            <th scope="col">
+                                Date
+                                <span class="material-symbols-outlined trieNom" data-order="asc"> arrow_upward </span>
+                                <span class="material-symbols-outlined trieNom" data-order="dsc"> arrow_downward </span>
+                            </th>
                             <th scope="col">Montant (FCFA)</th>
                             <th scope="col">Versé (FCFA)</th>
                             <th scope="col">Du (FCFA)</th>

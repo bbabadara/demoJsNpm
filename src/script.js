@@ -6,8 +6,10 @@ const inputAdresse=document.querySelector("#inputAdresse")
 const tBody=document.querySelector("#tBody")
 const pagination=document.querySelector("#pagination")
 const navInfo=document.querySelector("#nav-info")
+const inputDateFilter=document.querySelector("#inputDateFilter")
+const btnDateFilter=document.querySelector("#btnDateFilter")
 const elementPerPage=2
-
+let client=[]
 // Declaration tableau 
 let clients = [];
 
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
    //Events
   inputTel.addEventListener("change",function(){
     // alert(inputTel.value)
-   const client=findClientByTel(inputTel.value.trim());
+    client=findClientByTel(inputTel.value.trim());
    if(client!=null){
     // console.log(getSommeVerse(client.dette));
     inputTel.classList.remove("is-invalid")
@@ -40,12 +42,26 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     }      
    
  })
-
+ btnDateFilter.addEventListener("click",function(){
+  const dateFilter=inputDateFilter.value.trim()
+    const dette=getDetteByDate(dateFilter,client.dette)
+   generatePagination(dette,pagination,tBody,generateTbody)
+    
+      
+ })
 
 
 
 
   //Functions
+
+  function getElement(name, bool = false) {
+    if (!bool) {
+        return document.querySelector(name)
+    } else {
+        return document.querySelectorAll(name)
+    }
+}
 
   function getSommeDette(dette){
     let somme=0
@@ -154,3 +170,35 @@ function getDatasPaginate(tab,start,elementPage){
                 </div>
     `
    }
+
+   function getDetteByDate(date,tab) {
+   
+    return tab.filter(function (d) {
+        return d.date == date
+    })
+  }
+
+//    for (const trie of spansFilterDate) {
+//     trie.addEventListener("click", function () {
+//         tabl = trierTache(this.getAttribute("data-order"), "dateheure");
+//         taskBody.innerHTML = generateTbody(tabl)
+//     })
+// }
+
+// function trierTache(order, trie) {
+//   if (order == "asc") {
+//       return taches.sort((a, b) => a[trie].localeCompare(b[trie]));
+//   } else if (order == "dsc") {
+//       return taches.sort((a, b) => b[trie].localeCompare(a[trie]));
+//   }
+// }
+
+// function convertDate(date) {
+//   let [a, m, j] = date.split('-');
+//   return `${j}-${m}-${a}`;
+// }
+
+// function getCurrentDate() {
+//   return new Date().toISOString().split("T")[0]
+// }
+
