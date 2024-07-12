@@ -8,6 +8,7 @@ const pagination=document.querySelector("#pagination")
 const navInfo=document.querySelector("#nav-info")
 const inputDateFilter=document.querySelector("#inputDateFilter")
 const btnDateFilter=document.querySelector("#btnDateFilter")
+const triedate=document.querySelectorAll(".triedate")
 const elementPerPage=2
 let client=[]
 // Declaration tableau 
@@ -42,6 +43,16 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     }      
    
  })
+
+ for (const trie of triedate) {
+  trie.addEventListener("click", function () {
+    alert("ok")
+      tabl = trierdate(this.getAttribute("data-order"), "date",client.dette);
+      generatePagination(tabl,pagination,tBody,generateTbody)
+
+  })
+}
+
  btnDateFilter.addEventListener("click",function(){
   const dateFilter=inputDateFilter.value.trim()
     const dette=getDetteByDate(dateFilter,client.dette)
@@ -53,6 +64,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
 
 
+  
+  
+  })
+
   //Functions
 
   function getElement(name, bool = false) {
@@ -63,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     }
 }
 
-  function getSommeDette(dette){
+function getSommeDette(dette){
     let somme=0
     dette.forEach(u=> {
         somme+=u.montant
@@ -79,9 +94,6 @@ function getSommeVerse(dette){
     })
     return somme
 }
-  })
-  
-
   function findClientByTel(tel) {
     return clients.find(function (u) {
         return u.telephone==tel
@@ -178,25 +190,17 @@ function getDatasPaginate(tab,start,elementPage){
     })
   }
 
-//    for (const trie of spansFilterDate) {
-//     trie.addEventListener("click", function () {
-//         tabl = trierTache(this.getAttribute("data-order"), "dateheure");
-//         taskBody.innerHTML = generateTbody(tabl)
-//     })
-// }
 
-// function trierTache(order, trie) {
-//   if (order == "asc") {
-//       return taches.sort((a, b) => a[trie].localeCompare(b[trie]));
-//   } else if (order == "dsc") {
-//       return taches.sort((a, b) => b[trie].localeCompare(a[trie]));
-//   }
-// }
 
-// function convertDate(date) {
-//   let [a, m, j] = date.split('-');
-//   return `${j}-${m}-${a}`;
-// }
+function trierdate(order, trie,tab) {
+  if (order == "asc") {
+      return tab.sort((a, b) => a[trie].localeCompare(b[trie]));
+  } else if (order == "dsc") {
+      return tab.sort((a, b) => b[trie].localeCompare(a[trie]));
+  }
+}
+
+
 
 // function getCurrentDate() {
 //   return new Date().toISOString().split("T")[0]
