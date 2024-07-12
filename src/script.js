@@ -5,6 +5,7 @@ const inputPrenom=document.querySelector("#inputPrenom")
 const inputAdresse=document.querySelector("#inputAdresse")
 const tBody=document.querySelector("#tBody")
 const pagination=document.querySelector("#pagination")
+const navInfo=document.querySelector("#nav-info")
 const elementPerPage=2
 
 // Declaration tableau 
@@ -25,10 +26,12 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     // alert(inputTel.value)
    const client=findClientByTel(inputTel.value.trim());
    if(client!=null){
+    // console.log(getSommeVerse(client.dette));
     inputTel.classList.remove("is-invalid")
     inputTel.classList.add("is-valid")
     inputTel.nextElementSibling.textContent = "";
     generatePagination(client.dette,pagination,tBody,generateTbody)
+    navInfo.innerHTML=generateInfoClient(client,getSommeDette(client.dette),getSommeVerse(client.dette))
   }
     else{
       inputTel.classList.remove("is-valid")
@@ -42,13 +45,27 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
 
 
+  //Functions
 
+  function getSommeDette(dette){
+    let somme=0
+    dette.forEach(u=> {
+        somme+=u.montant
+        
+    })
+    return somme
+}
+function getSommeVerse(dette){
+    let somme=0
+    dette.forEach(u=> {
+        somme+=u.verse
+        
+    })
+    return somme
+}
   })
   
 
-  //Functions
-
-  
   function findClientByTel(tel) {
     return clients.find(function (u) {
         return u.telephone==tel
@@ -64,7 +81,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
 
 function generateTbody(elements) {
-  console.log(elements);
   let html = ""
   for (const element of elements) {
     html += generateTr(element)
@@ -115,4 +131,26 @@ function getDatasPaginate(tab,start,elementPage){
   })
   })
   
+   }
+
+   function generateInfoClient(client,montant,verse){
+    return `
+    <div class="container d-flex align-items-center justify-content-around mt-3">
+                  <div class="col-5">
+                    <img src="${client.photo}" class=" rounded-circle" alt alt="">
+                  </div>
+                  <div class="col-5">
+                    <p class="text-md-start fs-4">Nom: ${client.nom}</p>
+                    <p class="text-md-start fs-4">Prenom: ${client.prenom}</p>
+                    <p class="text-md-start fs-4">Telephone: ${client.telephone}</p>
+                    <p class="text-md-start fs-4">Adresse: ${client.adresse}</p>
+                  </div>
+                </div>
+                <div class="container mt-3">
+                  <p class="text-md-start fs-4">Total Dette: ${montant}</p>
+                  <p class="text-md-start fs-4">Montant Versé: ${verse}</p>
+                  <p class="text-md-start fs-4">Montant du: ${montant-verse}</p>
+                  
+                </div>
+    `
    }
