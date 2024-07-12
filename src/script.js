@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     inputTel.classList.remove("is-invalid")
     inputTel.classList.add("is-valid")
     inputTel.nextElementSibling.textContent = "";
-    // tBody.innerHTML=generateTbody(clients.dette)
+     tBody.innerHTML=generateTbody(client.dette)
   }
     else{
       inputTel.classList.remove("is-valid")
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
 
 function generateTbody(elements) {
-  
+  console.log(elements);
   let html = ""
   for (const element of elements) {
     html += generateTr(element)
