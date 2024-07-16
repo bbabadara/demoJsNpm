@@ -5,6 +5,7 @@ const inputNom=document.querySelector("#inputNom")
 const inputPrenom=document.querySelector("#inputPrenom")
 const inputAdresse=document.querySelector("#inputAdresse")
 const tBody=document.querySelector("#tBody")
+const btnAdd=document.querySelector("#btnAdd")
 const pagination=document.querySelector("#pagination")
 const navInfo=document.querySelector("#nav-info")
 const inputDateFilter=document.querySelector("#inputDateFilter")
@@ -13,6 +14,9 @@ const triedate=document.querySelectorAll(".triedate")
 const oblis=document.querySelectorAll(".obli")
 const elementPerPage=2
 let client=[]
+let validInp=false;
+let validTel=false;
+activeButton(btnAdd,true)
 // Declaration tableau 
 let clients = [];
 
@@ -66,26 +70,39 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   obli.addEventListener("input", function () {
       if (fieldsRequired(obli)) {
           success(obli)
+          obli.classList.add("verif")
+      }else{
+        obli.classList.remove("verif")
       }
-      // let inputValid = document.querySelectorAll(".is-valid")
-      // disabledBtn = !(Array.from(inputs).length == Array.from(inputValid).length)
-      // activeButton(btn, disabledBtn)
+       let inputValid = document.querySelectorAll(".verif")
+       validInp = Array.from(oblis).length == Array.from(inputValid).length
+      if (validInp && validTel) {
+        activeButton(btnAdd,false)
+      }else(
+        activeButton(btnAdd,true)
+      )
+    
   })
+ 
 }
 
 
 telephone.addEventListener("input", function () {
   if (fieldsRequired(telephone)) {
-      if (validerNumber(telephone.value)) {
+      if (validerNumber(telephone.value.trim())) {
         success(telephone)
+        validTel=true
       }else{
-        error(telephone,"saisir un numero valide")
+        error(telephone,"saisir un numero valide ex:771234567")
+        validTel=false
       }
     
   }
   
 })
-  
+
+
+
   
   })
 
