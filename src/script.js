@@ -1,5 +1,6 @@
 const WEBURL="http://localhost:8000/clients"
 const inputTel=document.querySelector("#inputTel")
+const telephone=document.querySelector("#telephone")
 const inputNom=document.querySelector("#inputNom")
 const inputPrenom=document.querySelector("#inputPrenom")
 const inputAdresse=document.querySelector("#inputAdresse")
@@ -9,6 +10,7 @@ const navInfo=document.querySelector("#nav-info")
 const inputDateFilter=document.querySelector("#inputDateFilter")
 const btnDateFilter=document.querySelector("#btnDateFilter")
 const triedate=document.querySelectorAll(".triedate")
+const oblis=document.querySelectorAll(".obli")
 const elementPerPage=2
 let client=[]
 // Declaration tableau 
@@ -60,9 +62,29 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       
  })
 
+ for (const obli of oblis) {
+  obli.addEventListener("input", function () {
+      if (fieldsRequired(obli)) {
+          success(obli)
+      }
+      // let inputValid = document.querySelectorAll(".is-valid")
+      // disabledBtn = !(Array.from(inputs).length == Array.from(inputValid).length)
+      // activeButton(btn, disabledBtn)
+  })
+}
 
 
-
+telephone.addEventListener("input", function () {
+  if (fieldsRequired(telephone)) {
+      if (validerNumber(telephone.value)) {
+        success(telephone)
+      }else{
+        error(telephone,"saisir un numero valide")
+      }
+    
+  }
+  
+})
   
   
   })
@@ -199,7 +221,38 @@ function trierdate(order, trie,tab) {
   }
 }
 
+function fieldsRequired(field) {
+  if (field.value.trim() === '') {
+      this.error(field)
+      return false
+  }
+  return true
 
+}
+function success(field) {
+  field.classList.remove("is-invalid")
+  field.classList.add("is-valid")
+}
+
+function error(field, msg = "Champ est obligatoire") {
+  field.classList.remove("is-valid")
+  field.classList.add("is-invalid")
+  field.nextElementSibling.textContent = msg
+}
+
+function activeButton(btn, etat) {
+  if (etat) {
+      btn.setAttribute("disabled", true)
+  } else (
+      btn.removeAttribute("disabled")
+  )
+
+}
+
+function validerNumber(numero) {
+  const regex = /^(70|75|76|77|78)\d{7}$/;
+  return regex.test(numero);
+}
 
 // function getCurrentDate() {
 //   return new Date().toISOString().split("T")[0]
