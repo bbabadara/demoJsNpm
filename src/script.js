@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
  for (const trie of triedate) {
   trie.addEventListener("click", function () {
-    alert("ok")
       tabl = trierdate(this.getAttribute("data-order"), "date",client.dette);
       generatePagination(tabl,pagination,tBody,generateTbody)
 
